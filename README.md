@@ -9,4 +9,6 @@ Demo Link : 아직 없음
 - Sass
 - git flow
 
-## 설치하지 않습니다
+## How to Start
+
+`sass --watch scss/style.scss css/style.css`
