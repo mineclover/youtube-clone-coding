@@ -132,3 +132,16 @@ function adClose() {
 
 //https://inpa.tistory.com/entry/JS-%F0%9F%9A%80-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EB%82%B4%EB%A0%A4%EC%84%9C-%ED%8A%B9%EC%A0%95-%EC%98%81%EC%97%AD-%EA%B0%90%EC%A7%80%ED%95%98%EA%B8%B0
 //자동 인식 갱신 실패
+
+
+
+let searchInputEl = document.querySelector('.header__input');
+let searchEl = document.querySelector(".input__block .hide-search");
+
+searchInputEl.addEventListener('focus', function() {
+  searchEl.classList.add('focused');
+});
+
+searchInputEl.addEventListener('blur', function() {
+  searchEl.classList.remove('focused');
+});
