@@ -95,8 +95,6 @@ button {
       width: 110px;
       text-decoration: none;
       color: #333;
-
-
     }
     .material-icons{
       display: block;
@@ -307,17 +305,16 @@ button {
       &__input-keyboard:hover {
         opacity: 1;
       }
-      &__right {
-        display: grid;
-        grid-template-columns:1fr 1fr 1fr;
-        gap: 1.5em;
-        padding-right: 2em;
-        align-items: center;
-      }
     }
   }
   
-  
+  &__right {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 1.5em;
+    padding-right: 2em;
+    align-items: center;
+  }
 
 
   button{
@@ -621,9 +618,13 @@ section.section__header {
 
 
 .primary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .ad {
     position: relative;
-    width: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
   
@@ -667,9 +668,12 @@ section.section__header {
   --primary-columus-height: 200px;
   
   width: 100%;
+  max-width: 2400px;
+  
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat( var(--primary-columus) , 1fr) ; //열
+  align-content: center;
+  grid-template-columns: repeat( var(--primary-columus) , 1fr ) ; //열
 
   gap: 0 16px;
   padding: 0 32px;
@@ -678,7 +682,6 @@ section.section__header {
   article.content {
     position: relative;
     width: 100%;
-    
     display: flex;
     margin: 0.5em;
     flex-wrap: wrap;

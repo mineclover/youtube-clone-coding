@@ -3,7 +3,7 @@ function onHtml(){
   menuSet("dumi");
   adRendom();
   heightController();
-  // columusController();
+  columusController();
 }
 
 function adRendom(){
@@ -162,37 +162,104 @@ function heightController(){
   
 }
 
-let delay = 100;
-var timer = null;
+
 window.addEventListener('resize',columusController);
 
 function columusController(){
   //Javascript
 
-  clearTimeout(timer);
-  timer = setTimeout(function(){
-    console.log('resize event!');
+
+
   
 
     let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
     let primaryEl = document.querySelector('.primary-area');
     console.log(vidioEl.getBoundingClientRect().width);
-    if (vidioEl.getBoundingClientRect().width < 240) {
-      primaryColumus--;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(primaryColumus);
-    }
+    
     // 계속 떨리는 문제가 발생한다 primaryEl 영역 크기 별 조건을 추가하자
-    else if (primaryEl.getBoundingClientRect().width < 520){
-      primaryColumus = 1;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(primaryColumus);
+    if ( primaryEl.getBoundingClientRect().width < 560 ){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+        primaryColumus = 1;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      }
+
+      else if (vidioEl.getBoundingClientRect().width > 320) {
+        primaryColumus = 1;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      }
+    }
+    else if ( primaryEl.getBoundingClientRect().width > 559 && primaryEl.getBoundingClientRect().width < 770){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+
+        primaryColumus = 1;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(2);
+
+      }
+      else if (vidioEl.getBoundingClientRect().width > 320) {
+        primaryColumus = 2;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(2);
+      }
     }
 
-    else if (vidioEl.getBoundingClientRect().width > 360){
-      primaryColumus++;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(primaryColumus);
+    else if ( primaryEl.getBoundingClientRect().width > 769 && primaryEl.getBoundingClientRect().width < 1150){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+        primaryColumus = 2;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(3);
+
+      }
+      else if (vidioEl.getBoundingClientRect().width > 380) {
+        primaryColumus = 3;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(3);
+      }
     }
-  }, delay);
+    else if ( primaryEl.getBoundingClientRect().width > 1149 && primaryEl.getBoundingClientRect().width < 1530){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+        primaryColumus = 3;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(4);
+
+      }
+      else if (vidioEl.getBoundingClientRect().width > 320) {
+        primaryColumus = 4;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(4);
+      }
+    }
+
+    else if ( primaryEl.getBoundingClientRect().width > 1529 && primaryEl.getBoundingClientRect().width < 1930){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+        primaryColumus = 4;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(5);
+
+      }
+      else if (vidioEl.getBoundingClientRect().width > 360) {
+        primaryColumus = 5;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(5);
+      }
+    }
+    else if ( primaryEl.getBoundingClientRect().width > 1929 && primaryEl.getBoundingClientRect().width < 2400){
+      
+      if (vidioEl.getBoundingClientRect().width < 240) {
+        primaryColumus = 5;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(6);
+
+      }
+      else if (vidioEl.getBoundingClientRect().width > 360) {
+        primaryColumus = 6;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(6);
+      }
+    }
 }

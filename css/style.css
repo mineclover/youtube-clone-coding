@@ -82,15 +82,14 @@ button {
   margin: 0em 1.5em;
 }
 .header__left .header__logo-link {
+  display: flex;
   width: 110px;
+  text-decoration: none;
+  color: #333;
 }
 .header__left .material-icons {
   display: block;
   font-size: 24px;
-}
-.header__logo-icon {
-  display: flex;
-  width: 110px;
 }
 .header__lang {
   display: flex;
@@ -100,11 +99,8 @@ button {
   margin-top: -4px;
   color: #777;
 }
-.header__logo-link {
-  text-decoration: none;
-  color: #333;
-}
 .header__center {
+  position: relative;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -112,34 +108,18 @@ button {
   border-radius: 2px;
   flex-wrap: nowrap;
 }
-.header.__input-keyboard {
-  position: relative;
-  left: -2em;
-  opacity: 0.7;
-}
-.header__input-keyboard:hover {
-  opacity: 1;
-}
-.header__right {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5em;
-  padding-right: 2em;
-  align-items: center;
-}
-.header .search-form {
+.header__center .search-form {
   position: relative;
   left: -20px;
   display: flex;
   max-width: 680px;
   width: 100%;
   justify-content: center;
-  align-items: flex-end;
   flex-direction: row;
   white-space: nowrap;
   z-index: 70;
 }
-.header .search-form input {
+.header__center .search-form input {
   width: calc(100% - 40px);
   border: #ccc 1px solid;
   border-radius: 2px 0 0 2px;
@@ -150,21 +130,21 @@ button {
   flex-grow: 1;
   padding-bottom: 3px;
 }
-.header .search-form input:focus {
+.header__center .search-form input:focus {
   width: 100%;
   border-color: rgb(19, 74, 255);
   box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.2);
   margin-left: 0px;
   padding-left: 40px;
 }
-.header .search-form input::placeholder {
+.header__center .search-form input::placeholder {
   padding-left: 8px;
 }
-.header .search-form .input__block {
+.header__center .search-form .input__block {
   position: relative;
   width: 100%;
 }
-.header .search-form .input__block .extend-point {
+.header__center .search-form .input__block .extend-point {
   position: absolute;
   top: 40px;
   background-color: rgb(255, 255, 255);
@@ -175,13 +155,13 @@ button {
   border-color: #eee;
   border-width: 0 1px 1px 1px;
 }
-.header .search-form .input__block .extend-point div:first-child, .header .search-form .input__block .extend-point div:last-child {
+.header__center .search-form .input__block .extend-point div:first-child, .header__center .search-form .input__block .extend-point div:last-child {
   height: 8px;
 }
-.header .search-form .input__block .extend-point .extend-point * {
+.header__center .search-form .input__block .extend-point .extend-point * {
   z-index: 70;
 }
-.header .search-form .input__block .extend-point .searched-list__li {
+.header__center .search-form .input__block .extend-point .searched-list__li {
   text-align: left;
   font-size: 14px;
   font-weight: bold;
@@ -191,25 +171,25 @@ button {
   position: relative;
   align-items: center;
 }
-.header .search-form .input__block .extend-point .searched-list__li:hover {
+.header__center .search-form .input__block .extend-point .searched-list__li:hover {
   background-color: #eee;
 }
-.header .search-form .input__block .extend-point .searched-list__li div {
+.header__center .search-form .input__block .extend-point .searched-list__li div {
   margin-left: 16px;
 }
-.header .search-form .input__block .extend-point .searched-list__li a {
+.header__center .search-form .input__block .extend-point .searched-list__li a {
   position: absolute;
   font-weight: lighter;
   right: 24px;
   font-size: 12px;
 }
-.header .search-form .input__block .extend-point .searched-list__li a:hover {
+.header__center .search-form .input__block .extend-point .searched-list__li a:hover {
   text-decoration: underline;
 }
-.header .search-form .input__block.focused .extend-point {
+.header__center .search-form .input__block.focused .extend-point {
   visibility: visible;
 }
-.header .search-form .input__block .hide-search {
+.header__center .search-form .input__block .hide-search {
   height: fit-content;
   position: absolute;
   display: block;
@@ -219,10 +199,10 @@ button {
   bottom: 0;
   visibility: hidden;
 }
-.header .search-form .input__block.focused .hide-search {
+.header__center .search-form .input__block.focused .hide-search {
   visibility: visible;
 }
-.header .search-form .header__input-keyboard {
+.header__center .search-form .header__input-keyboard {
   position: absolute;
   right: 10px;
   top: 0;
@@ -235,10 +215,10 @@ button {
   cursor: pointer;
   opacity: 0.4;
 }
-.header .search-form .header__input-keyboard:hover {
+.header__center .search-form .header__input-keyboard:hover {
   opacity: 0.7;
 }
-.header .search-form .search-link {
+.header__center .search-form .search-link {
   flex-grow: 0;
   flex-shrink: 0;
   border-width: 1px 1px 1px 0;
@@ -251,20 +231,35 @@ button {
   background-color: #f8f8f8;
   opacity: 0.9;
 }
-.header .search-form .search-link:hover {
+.header__center .search-form .search-link:hover {
   background-color: #eee;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-.header .search-form .search-mic {
+.header__center .search-form .search-mic {
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   background-color: #f8f8f8;
 }
-.header .search-form .search-mic:hover {
+.header__center .search-form .search-mic:hover {
   background-color: #eee;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.header__center .search-form.__input-keyboard {
+  position: relative;
+  left: -2em;
+  opacity: 0.7;
+}
+.header__center .search-form__input-keyboard:hover {
+  opacity: 1;
+}
+.header__right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5em;
+  padding-right: 2em;
+  align-items: center;
 }
 .header button {
   background-color: rgba(0, 0, 0, 0);
@@ -529,9 +524,14 @@ div.primary {
   height: 120px;
 }
 
+.primary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .primary .ad {
   position: relative;
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -566,8 +566,10 @@ div.primary {
   --primary-columus: 4;
   --primary-columus-height: 200px;
   width: 100%;
+  max-width: 2400px;
   display: grid;
   justify-content: center;
+  align-content: center;
   grid-template-columns: repeat(var(--primary-columus), 1fr);
   gap: 0 16px;
   padding: 0 32px;
