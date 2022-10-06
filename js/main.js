@@ -2,13 +2,15 @@
 function onHtml(){
   menuSet("dumi");
   adRendom();
+  heightController();
+  // columusController();
 }
 
 function adRendom(){
   console.log('실행됨');
   let i = Math.floor(Math.random() * 9 + 1);
   document.querySelector('.ad .ad__img').style.backgroundImage = `url("ad/ad_0${i}.png")`;
-  //-는 카멜로 대문자 변환?
+  //-는 카멜로 대문자 변환? 
 }
 
 function videoElement(){
@@ -59,7 +61,7 @@ function contentSelector(name){
   console.log(list[0]);
   
   
-  if(name == 'dumi'){
+  if(name === 'dumi'){
     for(let i = 0;i <list.length;i++){
       videoGenerator(list[i],dumiGen(i));
     }
@@ -132,3 +134,65 @@ function adClose() {
 
 //https://inpa.tistory.com/entry/JS-%F0%9F%9A%80-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EB%82%B4%EB%A0%A4%EC%84%9C-%ED%8A%B9%EC%A0%95-%EC%98%81%EC%97%AD-%EA%B0%90%EC%A7%80%ED%95%98%EA%B8%B0
 //자동 인식 갱신 실패
+
+
+
+let searchInputEl = document.querySelector('.header__input');
+let searchEl = document.querySelector(".input__block");
+
+searchInputEl.addEventListener('focus', function() {
+  searchEl.classList.add('focused');
+});
+
+searchInputEl.addEventListener('blur', function() {
+  searchEl.classList.remove('focused');
+});
+
+let primaryColumus = 4;
+
+function heightController(){
+  let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
+  
+  let primaryEl = document.querySelector('.primary-area');
+  console.log(vidioEl.getBoundingClientRect().width);
+  primaryEl.style.setProperty('--primary-columus-height',`${vidioEl.getBoundingClientRect().width * 0.6}`);
+  //primaryEl.style.setProperty('--primary-columus',`${floor(vidioEl.getBoundingClientRect().width / 300)}`);
+  console.log(vidioEl.getBoundingClientRect().width * 0.6);
+
+  
+}
+
+let delay = 100;
+var timer = null;
+window.addEventListener('resize',columusController);
+
+function columusController(){
+  //Javascript
+
+  clearTimeout(timer);
+  timer = setTimeout(function(){
+    console.log('resize event!');
+  
+
+    let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
+    let primaryEl = document.querySelector('.primary-area');
+    console.log(vidioEl.getBoundingClientRect().width);
+    if (vidioEl.getBoundingClientRect().width < 240) {
+      primaryColumus--;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(primaryColumus);
+    }
+    // 계속 떨리는 문제가 발생한다 primaryEl 영역 크기 별 조건을 추가하자
+    else if (primaryEl.getBoundingClientRect().width < 520){
+      primaryColumus = 1;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(primaryColumus);
+    }
+
+    else if (vidioEl.getBoundingClientRect().width > 360){
+      primaryColumus++;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(primaryColumus);
+    }
+  }, delay);
+}
