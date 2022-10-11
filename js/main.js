@@ -49,7 +49,7 @@ function menuSet(name){
 
 
 function extendLoad(){
-  videoContainerGen(12);
+  videoContainerGen(24);
   contentSelector('dumi');
 }
 
@@ -111,7 +111,9 @@ function videoGenerator(element,object) {
   element.querySelector('.content__live').style.display = object.live ? "block" : "none";
   element.querySelector('.content__user').innerHTML = `${object.username}`;
   element.querySelector('.material-icons.official').style.display = object.official ? "inline" : "none";
+  element.querySelector('.video_time span').innerHTML = object.time;
 
+  
 
   // console.log(object.thumbnail);
   // console.log(object.logo);
@@ -236,30 +238,39 @@ function columusController(){
 
     else if ( primaryEl.getBoundingClientRect().width > 1529 && primaryEl.getBoundingClientRect().width < 1930){
       
-      if (vidioEl.getBoundingClientRect().width < 240) {
+      if (vidioEl.getBoundingClientRect().width < 300) {
+        primaryColumus = 4;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(5);
+      }
+
+      else if (vidioEl.getBoundingClientRect().width > 400) {
+        primaryColumus = 5;
+        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+        console.log(5);
+      }
+
+      else if (vidioEl.getBoundingClientRect().width > 360) {
         primaryColumus = 4;
         primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
         console.log(5);
 
       }
-      else if (vidioEl.getBoundingClientRect().width > 360) {
-        primaryColumus = 5;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(5);
-      }
+      
     }
     else if ( primaryEl.getBoundingClientRect().width > 1929 && primaryEl.getBoundingClientRect().width < 2400){
       
-      if (vidioEl.getBoundingClientRect().width < 240) {
+      if (vidioEl.getBoundingClientRect().width < 310) {
         primaryColumus = 5;
         primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
         console.log(6);
 
       }
-      else if (vidioEl.getBoundingClientRect().width > 360) {
+      else if (vidioEl.getBoundingClientRect().width > 440) {
         primaryColumus = 6;
         primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
         console.log(6);
       }
     }
 }
+

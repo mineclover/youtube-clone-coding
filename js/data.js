@@ -209,8 +209,10 @@ function videoRandomGen(num){
     //썸네일 수
     randomNum.push(Math.floor(Math.random() * 33 + 1));
     //로고 수
+    randomNum.push(Math.floor(Math.random() * 2000 + 10));
+    //시간
     //https://blogpack.tistory.com/600
-    //숫자 자릿수 맞추기
+    //숫자 자릿수 맞추기 01, 02
     randomNum[0] =  '' + randomNum[0];
     randomNum[0] = randomNum[0].padStart(2,'0');
     
@@ -234,7 +236,8 @@ function videoRandomGen(num){
         official : randomNum[2],
         view : '조회수 N만회·',
         created : 'N일전',
-        live : false
+        live : false,
+        time : `${Math.floor(randomNum[2]/60)}:${(randomNum[2]%60).toString().padStart(2,'0')}`,
       });
       
     
@@ -259,4 +262,4 @@ function videoRandomGen(num){
 
   }
 }
-videoRandomGen(12)
+videoRandomGen(24)
