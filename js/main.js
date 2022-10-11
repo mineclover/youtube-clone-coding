@@ -1,10 +1,26 @@
+const io = new IntersectionObserver((entry, observer)=>{
+  //console.log(entry[0].boundingClientRect.y);
+  if (entry[0].boundingClientRect.y > 500 && entry[0].boundingClientRect.y < 2000) {
+    extendLoad();
+    io.disconnect();
+    resetObserve();
+  }
+  //나타날 때, 사라질 때 값이 옵저버에 저장된다
+  
+},{threshold: 0});
 
-function onHtml(){
-  menuSet("dumi");
-  adRendom();
-  heightController();
-  columusController();
+function resetObserve(){
+  if(io.entry){
+    io.disconnect();
+  };
+  
+  const lastEl = document.querySelector('.primary-area').lastElementChild;
+  io.observe(lastEl);
+  console.log(lastEl);
 }
+
+
+
 
 function adRendom(){
   console.log('실행됨');
@@ -274,3 +290,11 @@ function columusController(){
     }
 }
 
+
+function onHtml(){
+  menuSet("dumi");
+  adRendom();
+  heightController();
+  columusController();
+  resetObserve();
+}
