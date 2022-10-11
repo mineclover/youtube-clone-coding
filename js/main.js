@@ -1,11 +1,12 @@
 const io = new IntersectionObserver((entry, observer)=>{
   //console.log(entry[0].boundingClientRect.y);
   if (entry[0].boundingClientRect.y > 500 && entry[0].boundingClientRect.y < 2000) {
-    extendLoad();
-    io.disconnect();
-    resetObserve();
+    extendLoad(); //영상 리스트 생성
+    io.disconnect(); // 옵저버 삭제
+    resetObserve(); // 옵저버 생성
   }
-  //나타날 때, 사라질 때 값이 옵저버에 저장된다
+  //나타날 때, 사라질 때 선언될 때 값이 옵저버에 저장되고 콜백도 실행된다
+  //entry 는 배열로 저장된다
   
 },{threshold: 0});
 
@@ -16,7 +17,6 @@ function resetObserve(){
   
   const lastEl = document.querySelector('.primary-area').lastElementChild;
   io.observe(lastEl);
-  console.log(lastEl);
 }
 
 
@@ -172,10 +172,10 @@ function heightController(){
   let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
   
   let primaryEl = document.querySelector('.primary-area');
-  console.log(vidioEl.getBoundingClientRect().width);
+  //console.log(vidioEl.getBoundingClientRect().width);
   primaryEl.style.setProperty('--primary-columus-height',`${vidioEl.getBoundingClientRect().width * 0.6}`);
   //primaryEl.style.setProperty('--primary-columus',`${floor(vidioEl.getBoundingClientRect().width / 300)}`);
-  console.log(vidioEl.getBoundingClientRect().width * 0.6);
+  //console.log(vidioEl.getBoundingClientRect().width * 0.6);
 
   
 }
@@ -186,108 +186,108 @@ window.addEventListener('resize',columusController);
 function columusController(){
   //Javascript
 
+  heightController()
 
 
+
+  let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
+  let primaryEl = document.querySelector('.primary-area');
+  console.log(vidioEl.getBoundingClientRect().width);
   
-
-    let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
-    let primaryEl = document.querySelector('.primary-area');
-    console.log(vidioEl.getBoundingClientRect().width);
+  // 계속 떨리는 문제가 발생한다 primaryEl 영역 크기 별 조건을 추가하자
+  if ( primaryEl.getBoundingClientRect().width < 560 ){
     
-    // 계속 떨리는 문제가 발생한다 primaryEl 영역 크기 별 조건을 추가하자
-    if ( primaryEl.getBoundingClientRect().width < 560 ){
-      
-      if (vidioEl.getBoundingClientRect().width < 240) {
-        primaryColumus = 1;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      }
-
-      else if (vidioEl.getBoundingClientRect().width > 320) {
-        primaryColumus = 1;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      }
-    }
-    else if ( primaryEl.getBoundingClientRect().width > 559 && primaryEl.getBoundingClientRect().width < 770){
-      
-      if (vidioEl.getBoundingClientRect().width < 240) {
-
-        primaryColumus = 1;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(2);
-
-      }
-      else if (vidioEl.getBoundingClientRect().width > 320) {
-        primaryColumus = 2;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(2);
-      }
+    if (vidioEl.getBoundingClientRect().width < 240) {
+      primaryColumus = 1;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
     }
 
-    else if ( primaryEl.getBoundingClientRect().width > 769 && primaryEl.getBoundingClientRect().width < 1150){
-      
-      if (vidioEl.getBoundingClientRect().width < 240) {
-        primaryColumus = 2;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(3);
-
-      }
-      else if (vidioEl.getBoundingClientRect().width > 380) {
-        primaryColumus = 3;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(3);
-      }
+    else if (vidioEl.getBoundingClientRect().width > 320) {
+      primaryColumus = 1;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
     }
-    else if ( primaryEl.getBoundingClientRect().width > 1149 && primaryEl.getBoundingClientRect().width < 1530){
-      
-      if (vidioEl.getBoundingClientRect().width < 240) {
-        primaryColumus = 3;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(4);
+  }
+  else if ( primaryEl.getBoundingClientRect().width > 559 && primaryEl.getBoundingClientRect().width < 770){
+    
+    if (vidioEl.getBoundingClientRect().width < 240) {
 
-      }
-      else if (vidioEl.getBoundingClientRect().width > 320) {
-        primaryColumus = 4;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(4);
-      }
+      primaryColumus = 1;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(2);
+
+    }
+    else if (vidioEl.getBoundingClientRect().width > 320) {
+      primaryColumus = 2;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(2);
+    }
+  }
+
+  else if ( primaryEl.getBoundingClientRect().width > 769 && primaryEl.getBoundingClientRect().width < 1150){
+    
+    if (vidioEl.getBoundingClientRect().width < 240) {
+      primaryColumus = 2;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(3);
+
+    }
+    else if (vidioEl.getBoundingClientRect().width > 380) {
+      primaryColumus = 3;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(3);
+    }
+  }
+  else if ( primaryEl.getBoundingClientRect().width > 1149 && primaryEl.getBoundingClientRect().width < 1530){
+    
+    if (vidioEl.getBoundingClientRect().width < 240) {
+      primaryColumus = 3;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(4);
+
+    }
+    else if (vidioEl.getBoundingClientRect().width > 320) {
+      primaryColumus = 4;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(4);
+    }
+  }
+
+  else if ( primaryEl.getBoundingClientRect().width > 1529 && primaryEl.getBoundingClientRect().width < 1930){
+    
+    if (vidioEl.getBoundingClientRect().width < 300) {
+      primaryColumus = 4;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(5);
     }
 
-    else if ( primaryEl.getBoundingClientRect().width > 1529 && primaryEl.getBoundingClientRect().width < 1930){
-      
-      if (vidioEl.getBoundingClientRect().width < 300) {
-        primaryColumus = 4;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(5);
-      }
-
-      else if (vidioEl.getBoundingClientRect().width > 400) {
-        primaryColumus = 5;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(5);
-      }
-
-      else if (vidioEl.getBoundingClientRect().width > 360) {
-        primaryColumus = 4;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(5);
-
-      }
-      
+    else if (vidioEl.getBoundingClientRect().width > 400) {
+      primaryColumus = 5;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(5);
     }
-    else if ( primaryEl.getBoundingClientRect().width > 1929 && primaryEl.getBoundingClientRect().width < 2400){
-      
-      if (vidioEl.getBoundingClientRect().width < 310) {
-        primaryColumus = 5;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(6);
 
-      }
-      else if (vidioEl.getBoundingClientRect().width > 440) {
-        primaryColumus = 6;
-        primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-        console.log(6);
-      }
+    else if (vidioEl.getBoundingClientRect().width > 360) {
+      primaryColumus = 4;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(5);
+
     }
+    
+  }
+  else if ( primaryEl.getBoundingClientRect().width > 1929 && primaryEl.getBoundingClientRect().width < 2400){
+    
+    if (vidioEl.getBoundingClientRect().width < 310) {
+      primaryColumus = 5;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(6);
+
+    }
+    else if (vidioEl.getBoundingClientRect().width > 440) {
+      primaryColumus = 6;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(6);
+    }
+  }
 }
 
 

@@ -16,7 +16,8 @@ game.push({
   official : true,
   view : '조회수 1.4만회·',
   created : '3일전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 game.push({
@@ -29,7 +30,8 @@ game.push({
   official : true,
   view : '조회수 3.4만회·',
   created : '3일전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 
@@ -43,7 +45,8 @@ edu.push ({
   official : true,
   view : '5.3만명 시청중',
   created : '',
-  live : true
+  live : true,
+  time : "10:04",
 });
 
 music.push( {
@@ -56,7 +59,8 @@ music.push( {
   official : false,
   view : '조회수 164만회·',
   created : '1달전',
-  live : false
+  live : false,
+  time : "10:04",
 } );
 
 music.push ( {
@@ -69,7 +73,8 @@ music.push ( {
   official : false,
   view : '조회수 1064만회·',
   created : '3달전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 music.push ( {
@@ -82,7 +87,8 @@ music.push ( {
   official : false,
   view : '913명 시청중',
   created : '',
-  live : true
+  live : true,
+  time : "10:04",
 });
 
 music.push ( {
@@ -95,7 +101,8 @@ music.push ( {
   official : false,
   view : '조회수 4.6만회',
   created : '',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 pit.push ( {
@@ -108,7 +115,8 @@ pit.push ( {
   official : true,
   view : '93명 시청중',
   created : '',
-  live : true
+  live : true,
+  time : "10:04",
 });
 
 pit.push({
@@ -121,7 +129,8 @@ pit.push({
   official : true,
   view : '조회수 3001회·',
   created : '스트리밍 시간 : 1일전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 
@@ -135,7 +144,8 @@ coding.push( {
   official : true,
   view : '조회수 3001회·',
   created : '2주전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 coding.push( {
@@ -148,7 +158,8 @@ coding.push( {
   official : false,
   view : '조회수 3.3만회·',
   created : '1년전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 coding.push({
@@ -168,7 +179,8 @@ coding.push({
   view : '조회수 3001회·',
   created : '1년전',
   
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 coding.push({
@@ -181,7 +193,8 @@ coding.push({
   official : false,
   view : '조회수 3천회·',
   created : '5일전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 coding.push({
@@ -194,7 +207,8 @@ coding.push({
   official : false,
   view : '조회수 10.2만회·',
   created : '1년전',
-  live : false
+  live : false,
+  time : "10:04",
 });
 
 //사진 번호에 이름 따라올건데.. 그거 적용해도 되지 않을까

@@ -603,9 +603,10 @@ div.primary {
   overflow: hidden;
 }
 .primary-area article.content .vidio_thumb .content__img {
+  overflow: hidden;
   object-fit: fill;
   width: 100%;
-  height: 100%;
+  height: var(--primary-columus-height);
 }
 .primary-area article.content .video_time {
   position: absolute;
