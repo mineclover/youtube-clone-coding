@@ -21,7 +21,7 @@ function resetObserve(){
 
 
 
-
+// 비활성화된 코드
 function adRendom(){
   console.log('실행됨');
   let i = Math.floor(Math.random() * 9 + 1);
@@ -260,6 +260,14 @@ function columusController(){
       console.log(5);
     }
 
+    else if (vidioEl.getBoundingClientRect().width > 800) {
+      primaryColumus = 4;
+      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
+      console.log(5);
+    }
+    //grid 1칸에서 full 사이즈로 넘어갈 때 아티클 하나의 사이즈가 일시적으로 1500까지 넘어가게 됨
+    // 그렇게 되면 아래의 400이 실행되게되면서 소위 말하는 원하지 않는 동작을 함 그래서 > 800을 부여함
+
     else if (vidioEl.getBoundingClientRect().width > 400) {
       primaryColumus = 5;
       primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
@@ -293,7 +301,7 @@ function columusController(){
 
 function onHtml(){
   menuSet("dumi");
-  adRendom();
+  //adRendom();
   heightController();
   columusController();
   resetObserve();

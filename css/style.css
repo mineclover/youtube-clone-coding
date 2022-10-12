@@ -599,14 +599,14 @@ div.primary {
 .primary-area article.content .vidio_thumb {
   position: relative;
   width: 100%;
-  height: var(--primary-columus-height);
+  height: auto;
   overflow: hidden;
 }
 .primary-area article.content .vidio_thumb .content__img {
   overflow: hidden;
   object-fit: fill;
   width: 100%;
-  height: var(--primary-columus-height);
+  height: 100%;
 }
 .primary-area article.content .video_time {
   position: absolute;

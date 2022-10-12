@@ -7,7 +7,7 @@ var dumi = [];
 
 
 game.push({
-  thumbnail : "dumidata/green.jpg",
+  thumbnail : "dumidata/thummbnail_25.jpg",
   logo : 'dumidata/logo_03.jpg',
   title: '링크 있는 데이터 green',
   username : '나머지는 링크 # 처리',
@@ -25,7 +25,7 @@ game.push({
   logo : 'dumidata/logo_11.jpg',
   title: '소환사의 협곡 나들이',
   username : '만당만당',
-  contentLink : '#',
+  contentLink : '#만당',
   channelLink : '#',
   official : true,
   view : '조회수 3.4만회·',
@@ -33,7 +33,6 @@ game.push({
   live : false,
   time : "10:04",
 });
-
 
 edu.push ({
   thumbnail : 'dumidata/thummbnail_06.jpg',

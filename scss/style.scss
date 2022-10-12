@@ -701,15 +701,15 @@ section.section__header {
     .vidio_thumb {
       position: relative;
       width: 100%;
-      height: var(--primary-columus-height);
+      height: auto;
       overflow: hidden;
 
       .content__img {
         overflow: hidden;
         object-fit: fill;
         width: 100%;
-        height: var(--primary-columus-height);
-        //height: calc(var(--primary-columus-height)*1px);
+        height: 100%;
+        
       }
     }
     .video_time {
