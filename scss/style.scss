@@ -181,8 +181,8 @@ button {
           border-width: 0 1px 1px 1px;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   
-          & div:first-child,
-          & div:last-child
+          & div.gap:first-child,
+          & div.gap:last-child
           {
             height: 8px;
           }
@@ -192,25 +192,49 @@ button {
           }
     
           .searched-list__li{
+            min-height: 22px;
             text-align: left;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            padding: 6px 24px 6px 8px;
+            padding: 8px 24px 8px 8px;
             display: flex;
             flex-wrap: nowrap;
             position: relative;
-            
             align-items: center;
+            
+            
+
+            .search-data{
+              display: flex;
+              align-items: center;
+
+              
+
+              .material-icons{
+                margin: -2px;
+              }
+              
+
+            }
+            .delete-msg{
+              display: none;
+              font-weight: lighter;
+              margin-left: 36px;
+              color: #555;
+            }
+            
+            
           }
           .searched-list__li:hover{
             
             background-color: #eee;
           }
-          .searched-list__li div{
+          .searched-list__li div.result{
             margin-left: 16px;
           }
   
-          .searched-list__li a{
+          .searched-list__li .delete-button{
+            color :#134aff;
             position: absolute;
             font-weight: lighter;
             right: 24px;
@@ -218,7 +242,7 @@ button {
             
             font-size: 12px;
           }
-          .searched-list__li a:hover{
+          .searched-list__li .delete-button:hover{
             text-decoration: underline;
   
           }

@@ -157,13 +157,34 @@ function adClose() {
 
 let searchInputEl = document.querySelector('.header__input');
 let searchEl = document.querySelector(".input__block");
+let focusTracker ,mouseTracker = 0;
+
+searchEl.addEventListener('mouseenter',()=>{
+  console.log('enter');
+  // 들어오다
+  mouseTracker = 1;
+}
+);
+
+searchEl.addEventListener('mouseleave',()=>{
+  console.log('leave');
+  // 나가다
+  mouseTracker = 0;
+}
+);
 
 searchInputEl.addEventListener('focus', function() {
   searchEl.classList.add('focused');
+  focusTracker = 1;
 });
-
 searchInputEl.addEventListener('blur', function() {
-  searchEl.classList.remove('focused');
+  focusTracker = 0;
+  if(mouseTracker === 0){
+    searchEl.classList.remove('focused');
+  }
+  else{
+    searchInputEl.focus();
+  }
 });
 
 let primaryColumus = 4;
@@ -305,4 +326,16 @@ function onHtml(){
   heightController();
   columusController();
   resetObserve();
+}
+
+function searchremover(num){
+  let searchlistEl = document.querySelectorAll('.searched-list .searched-list__li');
+  let searchdataEl = searchlistEl[num].querySelector('.search-data');
+  
+  let deleteMsg = searchlistEl[num].querySelector('.delete-msg');
+  
+  searchdataEl.style.display = 'none';
+  deleteMsg.style.display = 'flex';
+
+
 }

@@ -160,35 +160,50 @@ button {
   border-width: 0 1px 1px 1px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.header__center .search-form .input__block .extend-point div:first-child, .header__center .search-form .input__block .extend-point div:last-child {
+.header__center .search-form .input__block .extend-point div.gap:first-child, .header__center .search-form .input__block .extend-point div.gap:last-child {
   height: 8px;
 }
 .header__center .search-form .input__block .extend-point .extend-point * {
   z-index: 70;
 }
 .header__center .search-form .input__block .extend-point .searched-list__li {
+  min-height: 22px;
   text-align: left;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
-  padding: 6px 24px 6px 8px;
+  padding: 8px 24px 8px 8px;
   display: flex;
   flex-wrap: nowrap;
   position: relative;
   align-items: center;
 }
+.header__center .search-form .input__block .extend-point .searched-list__li .search-data {
+  display: flex;
+  align-items: center;
+}
+.header__center .search-form .input__block .extend-point .searched-list__li .search-data .material-icons {
+  margin: -2px;
+}
+.header__center .search-form .input__block .extend-point .searched-list__li .delete-msg {
+  display: none;
+  font-weight: lighter;
+  margin-left: 36px;
+  color: #555;
+}
 .header__center .search-form .input__block .extend-point .searched-list__li:hover {
   background-color: #eee;
 }
-.header__center .search-form .input__block .extend-point .searched-list__li div {
+.header__center .search-form .input__block .extend-point .searched-list__li div.result {
   margin-left: 16px;
 }
-.header__center .search-form .input__block .extend-point .searched-list__li a {
+.header__center .search-form .input__block .extend-point .searched-list__li .delete-button {
+  color: #134aff;
   position: absolute;
   font-weight: lighter;
   right: 24px;
   font-size: 12px;
 }
-.header__center .search-form .input__block .extend-point .searched-list__li a:hover {
+.header__center .search-form .input__block .extend-point .searched-list__li .delete-button:hover {
   text-decoration: underline;
 }
 .header__center .search-form .input__block.focused .extend-point {
