@@ -606,10 +606,10 @@ div.primary {
   font-weight: bold;
   padding: 2px 6px;
 }
-.primary-area article.content:hover span {
+.primary-area article.content .vidio_thumb:hover span {
   display: none;
 }
-.primary-area article.content:hover .video_time::after {
+.primary-area article.content .vidio_thumb:hover .video_time::after {
   font-weight: lighter;
   content: "계속 마우스 오버하여 재생하기";
 }
@@ -642,12 +642,14 @@ div.primary {
   margin: 4px 0;
 }
 .video-detail .video-info .content__title-box a.content__title {
-  font-size: 15px;
-  font-weight: 500;
-  height: 50px;
-  max-height: 4em;
-  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 500;
+  max-height: 4em;
   line-height: 1.2em;
   text-decoration: none;
   color: #000;

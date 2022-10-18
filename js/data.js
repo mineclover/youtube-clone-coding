@@ -241,6 +241,7 @@ function videoRandomGen(num){
     //official 랜덤 숫자 높을 수록 확률 증가
     //삼항 연산자는 값 ? 참 : 거짓
     // 시간단위가 나오고 나온 숫자에 따라 나오는 숫자를 조정하는 식으로도 되긴 한다
+    // floor : 버림 , round : 반올림 
 
     //4 시간 단위
     const timeUnit = ['분','시간','일','주','개월','년','방금'];
@@ -282,7 +283,7 @@ function videoRandomGen(num){
       dumi.push ({
         thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
         logo : `dumidata/logo_${randomNum[1]}.jpg`,
-        title: `아무 컨텐츠_0${dumi.length}`,
+        title: `아무 컨텐츠_${dumi.length.toString().padStart(3,'0')} ${rendomLorem()}`,
         username : `${logoName[parseInt(randomNum[1])]}_0${dumi.length}`,
         contentLink : '#',
         channelLink : '#',
@@ -316,3 +317,13 @@ function videoRandomGen(num){
   }
 }
 videoRandomGen(24)
+
+function rendomLorem(){
+
+  const randomNum = Math.round(Math.random());
+  if (randomNum) {
+    return " 스타일 체크용 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's"
+  }
+
+  return ''
+}
