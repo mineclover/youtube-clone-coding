@@ -219,13 +219,22 @@ function videoRandomGen(num){
   for(let i = 0; i < num; i++){
     var randomNum = [];
     randomNum.push(Math.floor(Math.random() * 34 + 1));
-    //썸네일 수
+    //0 썸네일 수
     randomNum.push(Math.floor(Math.random() * 33 + 1));
-    //로고 수
+    //1 로고 수
     randomNum.push(Math.floor(Math.random() * 2000 + 10));
-    //시간
+    //2 시간
     //https://blogpack.tistory.com/600
     //숫자 자릿수 맞추기 01, 02
+    randomNum.push(Math.floor(Math.random() * 99 + 1));
+    //3 조회수
+    randomNum.push(Math.floor(Math.random() * 9 + 1));
+    //4 시간
+    const timeUnit = ['분','시간','일','주','개월'];
+
+    randomNum.push(Math.floor(Math.random() * timeUnit.length));
+    //5 시간 단위
+
     randomNum[0] =  '' + randomNum[0];
     randomNum[0] = randomNum[0].padStart(2,'0');
     
@@ -236,6 +245,8 @@ function videoRandomGen(num){
     //floor 가 잘 안되서 round 로 바꿈 다시 floor로 돌림
     //official 랜덤 숫자 높을 수록 확률 증가
     //삼항 연산자는 값 ? 참 : 거짓
+    // 시간단위가 나오고 나온 숫자에 따라 나오는 숫자를 조정하는 식으로도 되긴 한다
+
     console.log(randomNum[2]);
     
       console.log(randomNum[2]);
@@ -247,8 +258,8 @@ function videoRandomGen(num){
         contentLink : '#',
         channelLink : '#',
         official : randomNum[2],
-        view : '조회수 N만회·',
-        created : 'N일전',
+        view : `조회수 ${randomNum[3]}만회 · `,
+        created : `${randomNum[4]}${timeUnit[randomNum[5]]} 전`,
         live : false,
         time : `${Math.floor(randomNum[2]/60)}:${(randomNum[2]%60).toString().padStart(2,'0')}`,
       });

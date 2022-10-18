@@ -523,35 +523,7 @@ section.section__header {
   }
 
 
-  .content__live {
-    width: 72px;
-    height: 18px;
-  }
 
-  span.official {
-    margin-left: 1em;
-    font-size: 14px;
-    opacity: 0.6;
-  }
-
-  a.content__title {
-    font-size: 18px;
-    font-weight: 500;
-    height: 50px;
-    max-height: 4em;
-    line-clamp: 2;
-    overflow: hidden;
-    line-height: 1.2em;
-    text-decoration: none;
-    color: #000;
-  }
-
-
-  .content__info, .content__user {
-    font-size: 14px;
-    color:#333;
-    line-height: 1.5em;
-  }
 
   /* home */
   .video-list {
@@ -765,8 +737,10 @@ section.section__header {
 
 .video-detail 
 {
+  position: relative;
   display: flex;
   padding: 0.5em 1em 0.5em 0.2em;
+  width: 100%;
 
   .thumbnail{
     display: flex;
@@ -779,6 +753,83 @@ section.section__header {
     border-radius: 50%;
     border: none rgba(0, 0, 0, 0);
   }
+
+  .video-info {
+    display: block;
+    width: 100%;
+    padding-right: 24px;
+
+    .content__title-box {
+      display: block;
+      width: 100%;
+      margin: 4px 0;
+
+      a.content__title {
+        font-size: 15px;
+        font-weight: 500;
+        height: 50px;
+        max-height: 4em;
+        line-clamp: 2;
+        overflow: hidden;
+        line-height: 1.2em;
+        text-decoration: none;
+        color: #000;
+      }
+  
+    }
+    .content__live {
+      width: 72px;
+      height: 18px;
+    }
+  
+    span.official {
+      margin-left: 1em;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  
+    
+    .content__user {
+      font-size: 14px;
+      color:#333;
+      line-height: 1.5em;
+      
+    }
+    .content__info {
+      font-size: 13px;
+      color:#333;
+      line-height: 1.5em;
+    }
+  
+  
+
+
+  }
+
+  .content__more {
+    position:absolute;
+    top:0;
+    right: -10px;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    
+
+    .material-icons-outlined{
+      color : #333;
+    }
+  }
+
+  .content__more:hover {
+    background-color: #ccc;
+    
+  }
+
+
 
 }
 

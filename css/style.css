@@ -436,35 +436,6 @@ section.section__header {
   padding-bottom: 20px;
 }
 
-.content__live {
-  width: 72px;
-  height: 18px;
-}
-
-span.official {
-  margin-left: 1em;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-a.content__title {
-  font-size: 18px;
-  font-weight: 500;
-  height: 50px;
-  max-height: 4em;
-  line-clamp: 2;
-  overflow: hidden;
-  line-height: 1.2em;
-  text-decoration: none;
-  color: #000;
-}
-
-.content__info, .content__user {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.5em;
-}
-
 /* home */
 .video-list {
   min-width: 600px;
@@ -644,8 +615,10 @@ div.primary {
 }
 
 .video-detail {
+  position: relative;
   display: flex;
   padding: 0.5em 1em 0.5em 0.2em;
+  width: 100%;
 }
 .video-detail .thumbnail {
   display: flex;
@@ -657,6 +630,64 @@ div.primary {
 .video-detail .content__logo {
   border-radius: 50%;
   border: none rgba(0, 0, 0, 0);
+}
+.video-detail .video-info {
+  display: block;
+  width: 100%;
+  padding-right: 24px;
+}
+.video-detail .video-info .content__title-box {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+}
+.video-detail .video-info .content__title-box a.content__title {
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  max-height: 4em;
+  line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.2em;
+  text-decoration: none;
+  color: #000;
+}
+.video-detail .video-info .content__live {
+  width: 72px;
+  height: 18px;
+}
+.video-detail .video-info span.official {
+  margin-left: 1em;
+  font-size: 13px;
+  opacity: 0.6;
+}
+.video-detail .video-info .content__user {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5em;
+}
+.video-detail .video-info .content__info {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.5em;
+}
+.video-detail .content__more {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.video-detail .content__more .material-icons-outlined {
+  color: #333;
+}
+.video-detail .content__more:hover {
+  background-color: #ccc;
 }
 
 .extend-area {
