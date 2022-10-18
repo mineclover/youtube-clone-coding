@@ -219,36 +219,77 @@ function videoRandomGen(num){
   for(let i = 0; i < num; i++){
     var randomNum = [];
     randomNum.push(Math.floor(Math.random() * 34 + 1));
-    //썸네일 수
+    //0 썸네일 수
     randomNum.push(Math.floor(Math.random() * 33 + 1));
-    //로고 수
+    //1 로고 수
     randomNum.push(Math.floor(Math.random() * 2000 + 10));
-    //시간
+    //2 시간
     //https://blogpack.tistory.com/600
     //숫자 자릿수 맞추기 01, 02
+    randomNum.push(Math.floor(Math.random() * 99 + 1));
+    //3 조회수
+
+    // 썸네일, 로고 숫자 자릿수 맞추기
     randomNum[0] =  '' + randomNum[0];
     randomNum[0] = randomNum[0].padStart(2,'0');
     
     randomNum[1] =  '' + randomNum[1];
     randomNum[1] = randomNum[1].padStart(2,'0');
 
-    randomNum.push(Boolean(Math.floor(Math.random()*4)));
+    
     //floor 가 잘 안되서 round 로 바꿈 다시 floor로 돌림
     //official 랜덤 숫자 높을 수록 확률 증가
     //삼항 연산자는 값 ? 참 : 거짓
-    console.log(randomNum[2]);
+    // 시간단위가 나오고 나온 숫자에 따라 나오는 숫자를 조정하는 식으로도 되긴 한다
+    // floor : 버림 , round : 반올림 
+
+    //4 시간 단위
+    const timeUnit = ['분','시간','일','주','개월','년','방금'];
+    randomNum.push(Math.floor(Math.random() * timeUnit.length));
     
-      console.log(randomNum[2]);
+    //5 시간 단위
+    switch(randomNum[4]) {
+      case 0: 
+        randomNum.push(Math.floor(Math.random() * 59 + 1));
+        break;
+      case 1: 
+        randomNum.push(Math.floor(Math.random() * 23 + 1));
+        break;
+        
+      
+      case 2: 
+        randomNum.push(Math.floor(Math.random() * 30 + 1));
+        break;
+        
+      
+      case 3:
+        randomNum.push(Math.floor(Math.random() * 5 + 1));
+        break;
+        
+      
+      case 4:
+        randomNum.push(Math.floor(Math.random() * 11 + 1));
+        break;
+      case 5:
+        randomNum.push(Math.floor(Math.random() * 3 + 1));
+        break;
+      case 6:
+        randomNum.push('');
+        break;
+    }
+    randomNum.push(Boolean(Math.floor(Math.random()*4)));
+    //6 오피셜 유무
+    console.log(randomNum[6]);
       dumi.push ({
         thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
         logo : `dumidata/logo_${randomNum[1]}.jpg`,
-        title: `아무 컨텐츠_0${dumi.length}`,
+        title: `아무 컨텐츠_${dumi.length.toString().padStart(3,'0')} ${rendomLorem()}`,
         username : `${logoName[parseInt(randomNum[1])]}_0${dumi.length}`,
         contentLink : '#',
         channelLink : '#',
-        official : randomNum[2],
-        view : '조회수 N만회·',
-        created : 'N일전',
+        official : randomNum[6],
+        view : `조회수 ${randomNum[3]}만회 · `,
+        created : `${randomNum[5]}${timeUnit[randomNum[4]]} 전`,
         live : false,
         time : `${Math.floor(randomNum[2]/60)}:${(randomNum[2]%60).toString().padStart(2,'0')}`,
       });
@@ -276,3 +317,13 @@ function videoRandomGen(num){
   }
 }
 videoRandomGen(24)
+
+function rendomLorem(){
+
+  const randomNum = Math.round(Math.random());
+  if (randomNum) {
+    return " 스타일 체크용 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's"
+  }
+
+  return ''
+}
