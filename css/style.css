@@ -13,7 +13,7 @@
   background-clip: padding-box;
 }
 :root::-webkit-scrollbar-track {
-  background-color: #F9F9F9;
+  background-color: rgb(255, 255, 255);
   padding: 2px;
 }
 
@@ -342,7 +342,6 @@ section.section__header {
   position: fixed;
   width: 250px;
   height: calc(100vh - 60px);
-  padding-left: 20px;
   --control-bar-color: #fff;
   top: 60px;
   z-index: 199;
@@ -368,12 +367,9 @@ section.section__header {
 .sidebar .sidebar__subtitle {
   font-size: 14px;
 }
-.sidebar li button {
-  background-color: #fff;
-  border: none;
-}
-.sidebar li button:hover {
-  background-color: #eee;
+
+.sidebar__nav {
+  padding-left: 20px;
 }
 
 .sidebar__nav-item {
@@ -382,10 +378,10 @@ section.section__header {
   align-items: center;
 }
 .sidebar__nav-item.on {
-  background-color: #ddd;
+  background-color: #eee;
 }
 .sidebar__nav-item:hover {
-  background-color: #ddd;
+  background-color: #eee;
 }
 .sidebar__nav-item button {
   display: flex;
@@ -414,7 +410,7 @@ section.section__header {
 }
 
 .home .primary {
-  background-color: #F9F9F9;
+  background-color: #eee;
   z-index: 0;
 }
 
@@ -473,8 +469,8 @@ div.video-info .title {
   font-size: 14px;
 }
 
-.footer {
-  display: inline-block;
+.sidebar__footer {
+  padding-left: 20px;
 }
 
 .footer__link {
@@ -493,6 +489,10 @@ div.video-info .title {
   font-size: 12px;
   margin-right: 8px;
   line-height: 20px;
+}
+.footer__info a {
+  color: rgb(19, 74, 255);
+  cursor: pointer;
 }
 
 .footer ul {
