@@ -327,3 +327,23 @@ function rendomLorem(){
 
   return ''
 }
+
+
+function videoActive(num){
+  const videoMorelist = document.querySelectorAll(".nav__more-menu");
+  const icon = videoMorelist[num].nextElementSibling.querySelector(".material-icons");
+  
+
+  if (videoMorelist[num].classList.contains('hiding')) {
+    videoMorelist[num].classList.remove('hiding');
+    icon.classList.add('rotation');
+    videoMorelist[num].nextElementSibling.querySelector('.video__more-button').innerHTML = "간략히 보기";
+
+  }
+  else{
+    videoMorelist[num].classList.add('hiding');
+    icon.classList.remove('rotation');
+    videoMorelist[num].nextElementSibling.querySelector('.video__more-button').innerHTML = "더보기";
+  }
+
+}
