@@ -13,7 +13,7 @@
   background-clip: padding-box;
 }
 :root::-webkit-scrollbar-track {
-  background-color: #F9F9F9;
+  background-color: rgb(255, 255, 255);
   padding: 2px;
 }
 
@@ -295,7 +295,7 @@ button {
 section.section__header {
   position: fixed;
   display: flex;
-  width: calc(100vw - var(--side-menu-width));
+  width: calc(100% - var(--side-menu-width));
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #ddd;
@@ -342,7 +342,6 @@ section.section__header {
   position: fixed;
   width: 250px;
   height: calc(100vh - 60px);
-  padding-left: 20px;
   --control-bar-color: #fff;
   top: 60px;
   z-index: 199;
@@ -368,43 +367,140 @@ section.section__header {
 .sidebar .sidebar__subtitle {
   font-size: 14px;
 }
-.sidebar li button {
+
+.sidebar__nav {
+  padding-left: 20px;
   background-color: #fff;
-  border: none;
 }
-.sidebar li button:hover {
-  background-color: #eee;
+.sidebar__nav .fix-subscribe,
+.sidebar__nav .more-video {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+  align-content: stretch;
+}
+.sidebar__nav .fix-subscribe .videos,
+.sidebar__nav .more-video .videos {
+  position: static;
+}
+.sidebar__nav .fix-subscribe .videos .newvideo-icons,
+.sidebar__nav .more-video .videos .newvideo-icons {
+  color: #134aff;
+  font-size: 36px;
+  position: absolute;
+  right: 16px;
+  top: 6px;
+}
+.sidebar__nav .fix-subscribe .videos .youtuber,
+.sidebar__nav .more-video .videos .youtuber {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex: none;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.sidebar__nav .fix-subscribe .videos .youtuber img,
+.sidebar__nav .more-video .videos .youtuber img {
+  width: 24px;
+  height: 24px;
+}
+.sidebar__nav .fix-subscribe .videos .playlist,
+.sidebar__nav .more-video .videos .playlist {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex: none;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.sidebar__nav .fix-subscribe .videos .playlist img,
+.sidebar__nav .more-video .videos .playlist img {
+  width: 24px;
+  height: 24px;
+}
+.sidebar__nav .fix-subscribe .videos .playlist-name,
+.sidebar__nav .more-video .videos .playlist-name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 150px;
+}
+.sidebar__nav .fix-subscribe .more-menu__video,
+.sidebar__nav .more-video .more-menu__video {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.sidebar__nav .fix-subscribe .nav__more-menu,
+.sidebar__nav .more-video .nav__more-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+  transition: 3s;
+}
+.sidebar__nav .fix-subscribe .nav__more-menu.hiding,
+.sidebar__nav .more-video .nav__more-menu.hiding {
+  display: none;
+}
+.sidebar__nav .fix-subscribe .nav__more-arrow,
+.sidebar__nav .more-video .nav__more-arrow {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+hr {
+  display: block;
+  margin: 16px 0;
+}
+
+.rotation {
+  transform: rotateZ(180deg);
+  transition: 0.6s;
 }
 
 .sidebar__nav-item {
   width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .sidebar__nav-item.on {
   background-color: #ddd;
 }
-.sidebar__nav-item:hover {
-  background-color: #ddd;
+.sidebar__nav-item.on:hover {
+  background-color: #ccc;
 }
-.sidebar__nav-item button {
+.sidebar__nav-item:hover {
+  background-color: #eee;
+}
+.sidebar__nav-item div {
   display: flex;
   align-items: center;
-  flex: 1;
-  height: 48px;
+  height: 40px;
 }
-.sidebar__nav-item button span {
+.sidebar__nav-item div span {
   font-size: 15px;
 }
-.sidebar__nav-item button span.material-icons {
+.sidebar__nav-item div span.material-icons {
   margin-right: 20px;
   font-size: 24px;
 }
-.sidebar__nav-item button span.material-icons-outlined {
+.sidebar__nav-item div span.material-icons-outlined {
   margin-right: 20px;
   font-size: 24px;
 }
-.sidebar__nav-item button svg {
+.sidebar__nav-item div svg {
   margin-right: 20px;
   font-size: 24px;
 }
@@ -414,7 +510,7 @@ section.section__header {
 }
 
 .home .primary {
-  background-color: #F9F9F9;
+  background-color: #eee;
   z-index: 0;
 }
 
@@ -473,8 +569,8 @@ div.video-info .title {
   font-size: 14px;
 }
 
-.footer {
-  display: inline-block;
+.sidebar__footer {
+  padding-left: 20px;
 }
 
 .footer__link {
@@ -493,6 +589,10 @@ div.video-info .title {
   font-size: 12px;
   margin-right: 8px;
   line-height: 20px;
+}
+.footer__info a {
+  color: rgb(19, 74, 255);
+  cursor: pointer;
 }
 
 .footer ul {

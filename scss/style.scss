@@ -365,7 +365,7 @@ button {
 section.section__header {
   position:fixed;
   display: flex;
-  width: calc(100vw - var(--side-menu-width));
+  width: calc(100% - var(--side-menu-width));
   
   align-items: center;
   justify-content: center;
@@ -420,7 +420,6 @@ section.section__header {
     position: fixed;
     width: 250px;
     height: calc(100vh - 60px);
-    padding-left: 20px;
     --control-bar-color: #fff;
     top: 60px;
     z-index: 199;
@@ -447,34 +446,140 @@ section.section__header {
     font-size: 14px;
   }
 
-  li button {
-    background-color: #fff;
-    border: none;
-  }
-  li button:hover {
-    background-color: #eee;
-  }
+  
 }
   
+.sidebar__nav{
+  padding-left: 20px;
+  background-color: #fff;
+
+  .fix-subscribe ,
+  .more-video {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+    align-items: stretch;
+    align-content: stretch;
+
+
+    .videos{
+      position: static;
+
+
+      .newvideo-icons{
+        color:#134aff;
+        font-size: 36px;
+        position: absolute;
+        right: 16px;
+        top: 6px;
+      }
+
+      .youtuber{
+        width: 24px;
+        height: 24px;
+        display: block;
+        flex: none;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 20px;
+
+        img{
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .playlist{
+        width: 24px;
+        height: 24px;
+        display: block;
+        flex: none;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 20px;
+
+        img{
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .playlist-name{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 150px;
+      }
+    }
+
+    .more-menu__video {
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav__more-menu {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      align-items: flex-start;
+      transition: 3s;
+    }
+    .nav__more-menu.hiding {
+      display: none;
+    }
+    .nav__more-arrow {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+}
+
+hr {
+  display: block;
+  margin: 16px 0;
+}
+
+.rotation{
+  transform: rotateZ(180deg);
+  transition: .6s;
+}
+
 
 .sidebar__nav-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
+  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+
+
+
 
   &.on {
     background-color: #ddd;
+    &:hover {
+      background-color: #ccc;
+    }
   }
+  
   
   &:hover {
-    background-color: #ddd;
+    background-color: #eee;
   }
   
-  button {
+  // side 메뉴들
+  div {
     display: flex;
     align-items: center;
-    flex: 1;
-    height: 48px;  
+    height: 40px;  
   
     span {
       font-size: 15px;
@@ -565,9 +670,10 @@ section.section__header {
     font-size: 14px;
   }
   
-  .footer {
-    display: inline-block;
+  .sidebar__footer{
+    padding-left: 20px;
   }
+
   .footer__link {
     display:inline-block;
     color: #555;
@@ -584,6 +690,11 @@ section.section__header {
     font-size: 12px;
     margin-right: 8px;
     line-height: 20px;
+
+    a {
+      color:rgb(19, 74, 255);
+      cursor: pointer;
+    }
   }
 
   
