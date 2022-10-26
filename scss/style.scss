@@ -70,7 +70,7 @@ button {
 // }
 
 /* .header */
-.header {
+header {
   position: fixed;
   width: 100%;
   display: flex;
@@ -83,12 +83,12 @@ button {
   z-index: 10;
   background-color: #fff;
 
-  &__left {
+  .header__left {
     position: relative;
     display: flex;
     align-items: center;
     
-    &__sidebutton{
+    .header__sidebutton{
       margin: 0em 1.5em;
     }
     .header__logo-link{
@@ -115,7 +115,7 @@ button {
   
   
   
-  &__center {
+  .header__center {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -166,9 +166,7 @@ button {
         display: flex;
         align-items: center;
         width: 100%;
-  
         
-  
         .extend-point {
           position: absolute;
           top: 46px;

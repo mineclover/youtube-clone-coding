@@ -1,9 +1,9 @@
-var game = [];
-var edu = [];
-var music = [];
-var coding = [];
-var pit = [];
-var dumi = [];
+const game = [];
+const edu = [];
+const music = [];
+const coding = [];
+const pit = [];
+const dumi = [];
 
 
 game.push({
@@ -210,22 +210,20 @@ coding.push({
   time : "10:04",
 });
 
-//사진 번호에 이름 따라올건데.. 그거 적용해도 되지 않을까
-var logoName = ['','빨강','주황','연두','초록','하늘','파랑','보라','보라보라','웃긴댓글','예쁜누나','만당','피지컬갤러리','ONLINE Tutorials','스티부','제페토 안경','나도 코딩','흰머리주황눈','헤이스트','인프런','EO','키리','조코딩','회색머리 별눈','잡상싱','돈좋아','비디오 에디터','후론투','투더제이','메켓','플레이리스트','덕양소','짐코딩','구글휴먼'];
-//나머지도 하면될거같ㄷ..ㅏ.. 으어..
+let logoName = ['','빨강','주황','연두','초록','하늘','파랑','보라','보라보라','웃긴댓글','예쁜누나','만당','피지컬갤러리','ONLINE Tutorials','스티부','제페토 안경','나도 코딩','흰머리주황눈','헤이스트','인프런','EO','키리','조코딩','회색머리 별눈','잡상싱','돈좋아','비디오 에디터','후론투','투더제이','메켓','플레이리스트','덕양소','짐코딩','구글휴먼'];
 
 function videoRandomGen(num){
 
   for(let i = 0; i < num; i++){
-    var randomNum = [];
+    let randomNum = [];
     randomNum.push(Math.floor(Math.random() * 34 + 1));
     //0 썸네일 수
     randomNum.push(Math.floor(Math.random() * 33 + 1));
     //1 로고 수
     randomNum.push(Math.floor(Math.random() * 2000 + 10));
     //2 시간
-    //https://blogpack.tistory.com/600
-    //숫자 자릿수 맞추기 01, 02
+
+    //파일이름 숫자 2자릿수 맞추기 01, 02
     randomNum.push(Math.floor(Math.random() * 99 + 1));
     //3 조회수
 
@@ -236,12 +234,6 @@ function videoRandomGen(num){
     randomNum[1] =  '' + randomNum[1];
     randomNum[1] = randomNum[1].padStart(2,'0');
 
-    
-    //floor 가 잘 안되서 round 로 바꿈 다시 floor로 돌림
-    //official 랜덤 숫자 높을 수록 확률 증가
-    //삼항 연산자는 값 ? 참 : 거짓
-    // 시간단위가 나오고 나온 숫자에 따라 나오는 숫자를 조정하는 식으로도 되긴 한다
-    // floor : 버림 , round : 반올림 
 
     //4 시간 단위
     const timeUnit = ['분','시간','일','주','개월','년','방금'];
@@ -273,13 +265,12 @@ function videoRandomGen(num){
       case 5:
         randomNum.push(Math.floor(Math.random() * 3 + 1));
         break;
-      case 6:
+      default:
         randomNum.push('');
         break;
     }
-    randomNum.push(Boolean(Math.floor(Math.random()*4)));
-    //6 오피셜 유무
-    console.log(randomNum[6]);
+    randomNum.push(!Boolean(Math.floor(Math.random()*4)));
+
       dumi.push ({
         thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
         logo : `dumidata/logo_${randomNum[1]}.jpg`,
@@ -293,27 +284,6 @@ function videoRandomGen(num){
         live : false,
         time : `${Math.floor(randomNum[2]/60)}:${(randomNum[2]%60).toString().padStart(2,'0')}`,
       });
-      
-    
-    
-    // else if(name == 'music') {
-      
-    //   music.push ({
-    //     thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
-    //     logo : `dumidata/logo_${randomNum[1]}.jpg`,
-    //     title: `아무 게임_0${music.length}`,
-    //     username : `musician_0${music.length}`,
-    //     contentLink : '#',
-    //     channelLink : '#',
-        
-    //     official : randomNum[2],
-    //     view : '조회수 N만회·',
-    //     created : 'N일전',
-    //     live : false
-    //   });
-    // }
-
-
   }
 }
 videoRandomGen(24)
